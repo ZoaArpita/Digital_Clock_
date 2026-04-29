@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clocl</title>
+    <script src="digital_clock.js"></script>
+    <style>
+         body {
+            background-color: #000000;  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;  
+        }
+
+        #clock {
+            font-size: 80px;
+            color: #00ff41;  
+            background: #1a1a1a;
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2),
+                        inset 0 0 10px rgba(0, 0, 0, 0.5);
+            border: 2px solid #333;
+            letter-spacing: 5px;
+        }
+
+        
+       
+    </style>
+
+</head>
+<body>
+    <div id="clock"></div>
+
+    <script>setInterval(showTime, 1000);
+        function showTime() {
+            let time = new Date();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let sec = time.getSeconds();
+            am_pm = "AM";
+        
+            if (hour >= 12) {
+                if (hour > 12) hour -= 12;
+                am_pm = "PM";
+            } else if (hour == 0) {
+                hr = 12;
+                am_pm = "AM";
+            }
+        
+            hour =
+                hour < 10 ? "0" + hour : hour;
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+        
+            let currentTime =
+                hour +
+                ":" +
+                min +
+                ":" +
+                sec +
+                am_pm;
+        
+            
+            document.getElementById(
+                "clock"
+            ).innerHTML = currentTime;
+        }
+        
+        showTime();</script>
+    
+</body>
+</html>
